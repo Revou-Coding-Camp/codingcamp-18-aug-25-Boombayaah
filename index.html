@@ -18,7 +18,7 @@
     <div class="container mx-auto px-4 py-8 max-w-3xl">
       <!-- Hero Website (Header) -->
       <header class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-indigo-700 mb-2">To-Do List</h1>
+        <h1 class="text-4xl font-bold text-indigo-700 mb-2">ToNdoList</h1>
         <p class="text-gray-600">Kelola tugas dengan mudah dan efisien</p>
       </header>
 
@@ -26,52 +26,72 @@
       <main class="bg-white rounded-xl shadow-lg p-6 mb-8">
         <!-- Input Form -->
         <form id="task-form" class="mb-8">
-          <input
-            type="text"
-            id="task-input"
-            placeholder="Add a new task"
-            class="border p-2 rounded"
-          />
-          <input
-            type="date"
-            id="due-date-input"
-            placeholder="Add a new task"
-            class="border p-2 rounded"
-          />
-          <button
-            type="button"
-            onclick="ValidateForm()"
-            class="font-bold bg-yellow-500 text-black p-2 px-5 rounded"
-          >
-            +
-          </button>
+          <div class="flex flex-col md:flex-row gap-4">
+            <input
+              type="text"
+              id="task-input"
+              placeholder="Apa yang perlu dilakukan?"
+              class="flex-grow border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+            <input
+              type="date"
+              id="due-date-input"
+              class="border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+            <button
+              type="submit"
+              class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold p-3 px-6 rounded-lg transition duration-200 flex items-center justify-center"
+            >
+              <i class="fas fa-plus mr-2"></i> Tambah
+            </button>
+          </div>
         </form>
 
         <!-- Action Button Section -->
-        <section>
-          <button class="bg-green-500 text-white p-2 rounded">Filter</button>
+        <div class="flex flex-wrap gap-3 mb-6">
           <button
-            onclick="DeleteAll();"
-            class="bg-red-500 text-white p-2 rounded"
+            id="filter-all"
+            class="filter-btn bg-indigo-600 text-white px-4 py-2 rounded-lg transition duration-200"
           >
-            Delete All
+            Semua
           </button>
-        </section>
+          <button
+            id="filter-active"
+            class="filter-btn bg-white text-indigo-600 border border-indigo-600 px-4 py-2 rounded-lg transition duration-200"
+          >
+            Aktif
+          </button>
+          <button
+            id="filter-completed"
+            class="filter-btn bg-white text-indigo-600 border border-indigo-600 px-4 py-2 rounded-lg transition duration-200"
+          >
+            Selesai
+          </button>
+          <button
+            onclick="deleteAll()"
+            class="bg-red-500 hover:bg-red-600 text-white font-semibold ml-auto px-4 py-2 rounded-lg transition duration-200 flex items-center"
+          >
+            <i class="fas fa-trash mr-2"></i> Hapus Semua
+          </button>
+        </div>
+
+        <!-- Task Counter -->
+        <div class="text-gray-600 mb-4 text-sm">
+          <span id="task-count">0</span> tugas tersisa
+        </div>
 
         <!-- List of task -->
         <section>
-          <header>
-            <h2 class="text-2xl font-semibold">Tasks</h2>
-          </header>
-          <ul class="my-4" id="task-list">
-            <li class="border-b py-2">Task 1 - Due: Unknown</li>
-            <li class="border-b py-2">Task 2 - Due: Unknown</li>
-            <li class="border-b py-2">Task 3 - Due: Unknown</li>
-          </ul>
+          <ul id="task-list" class="divide-y divide-gray-200"></ul>
+
+          <div id="empty-state" class="text-center py-12 text-gray-500 hidden">
+            <i class="fas fa-check-circle text-4xl mb-4 text-indigo-300"></i>
+            <p>Tidak ada tugas. Tambahkan tugas baru!</p>
+          </div>
         </section>
       </main>
 
-      <footer class="text-center">
+      <footer class="text-center text-gray-600 text-sm">
         <span>&copy; 2025 Ndo. All rights reserved.</span>
       </footer>
     </div>
