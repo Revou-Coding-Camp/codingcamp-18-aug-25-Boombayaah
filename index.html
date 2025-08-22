@@ -7,6 +7,8 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Icon -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -80,10 +82,11 @@
           <span id="task-count">0</span> tugas tersisa
         </div>
 
-        <!-- List of task -->
+        <!-- List of Tasks -->
         <section>
           <ul id="task-list" class="divide-y divide-gray-200"></ul>
 
+          <!-- Empty State -->
           <div id="empty-state" class="text-center py-12 text-gray-500 hidden">
             <i class="fas fa-check-circle text-4xl mb-4 text-indigo-300"></i>
             <p>Tidak ada tugas. Tambahkan tugas baru!</p>

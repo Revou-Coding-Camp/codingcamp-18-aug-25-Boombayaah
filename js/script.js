@@ -1,4 +1,4 @@
-let listToDo = SON.parse(localStorage.getItem("todos")) || [];
+let listToDo = JSON.parse(localStorage.getItem("todos")) || [];
 let currentFilter = "all";
 
 // Initialize The Application
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Setup Form Submission
   document.getElementById("task-form").addEventListener("submit", function (e) {
     e.preventDefault();
-    ValidateForm();
+    validateForm();
   });
 
   // Setup Filter Buttons
@@ -46,8 +46,7 @@ function showAlert(message) {
   const alertEl = document.createElement("div");
   alertEl.className =
     "fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-x-full";
-  alertEl.innerHTML =
-    '<div class="flex items-center"> <i class="fas fa-exclamation-circle mr-2"></i> <span>${message}</span> </div>';
+  alertEl.innerHTML = `<div class="flex items-center"> <i class="fas fa-exclamation-circle mr-2"></i> <span>${message}</span> </div>`;
 
   document.body.appendChild(alertEl);
 
@@ -164,7 +163,7 @@ function renderToDoList() {
   const emptyState = document.getElementById("empty-state");
   taskList.innerHTML = "";
 
-  // Filter Task Based on Current Filter
+  // Filter tasks based on current filter
   const filteredTasks = listToDo.filter((todo) => {
     if (currentFilter === "active") return !todo.completed;
     if (currentFilter === "completed") return todo.completed;
@@ -186,9 +185,10 @@ function renderToDoList() {
       todo.completed ? "opacity-70" : ""
     }`;
 
-    listItem.innerHTML = `<button onclick="toggleComplete(${
-      todo.id
-    })" class="mr-3 mt-1 flex-shrink-0">
+    listItem.innerHTML = `
+            <button onclick="toggleComplete(${
+              todo.id
+            })" class="mr-3 mt-1 flex-shrink-0">
               <i class="fas ${
                 todo.completed
                   ? "fa-check-circle text-green-500"
