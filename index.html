@@ -5,68 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List -- Ndo</title>
 
-    <!-- CSS External -->
-    <link rel="stylesheet" href="css/style.css" />
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
-  <body>
-    <!-- Hero Website -->
-    <header>
-      <h1 class="text-4xl font-bold">To-Do List</h1>
-    </header>
-    <!-- Main Content -->
-    <main>
-      <form>
-        <input
-          type="text"
-          id="task-input"
-          placeholder="Add a new task"
-          class="border p-2 rounded"
-        />
-        <input
-          type="date"
-          id="due-date-input"
-          placeholder="Add a new task"
-          class="border p-2 rounded"
-        />
-        <button
-          type="button"
-          onclick="validateForm();"
-          class="bg-yellow-500 text-black p-[8px] rounded"
-        >
-          Add
-        </button>
-      </form>
 
-      <!-- Action Button Section -->
-      <section>
-        <button class="bg-green-500 text-white p-2 rounded">Filter</button>
-        <button
-          onclick="deleteAll();"
-          class="bg-red-500 text-white p-2 rounded"
-        >
-          Delete All
-        </button>
-      </section>
+  <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Container Box -->
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+      <!-- Hero Website (Header) -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-indigo-700 mb-2">To-Do List</h1>
+        <p class="text-gray-600">Kelola tugas dengan mudah dan efisien</p>
+      </header>
 
-      <!-- List of task -->
-      <section>
-        <header>
-          <h2 class="text-2xl font-semibold">Tasks</h2>
-        </header>
-        <ul class="my-4">
-          <li class="border-b py-2">Task 1</li>
-          <li class="border-b py-2">Task 2</li>
-          <li class="border-b py-2">Task 3</li>
-        </ul>
-      </section>
-    </main>
+      <!-- Main Content -->
+      <main class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <!-- Input Form -->
+        <form id="task-form" class="mb-8">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Add a new task"
+            class="border p-2 rounded"
+          />
+          <input
+            type="date"
+            id="due-date-input"
+            placeholder="Add a new task"
+            class="border p-2 rounded"
+          />
+          <button
+            type="button"
+            onclick="ValidateForm()"
+            class="font-bold bg-yellow-500 text-black p-2 px-5 rounded"
+          >
+            +
+          </button>
+        </form>
 
-    <footer>
-      <span>&copy; 2025 Ndo. All rights reserved.</span>
-    </footer>
+        <!-- Action Button Section -->
+        <section>
+          <button class="bg-green-500 text-white p-2 rounded">Filter</button>
+          <button
+            onclick="DeleteAll();"
+            class="bg-red-500 text-white p-2 rounded"
+          >
+            Delete All
+          </button>
+        </section>
+
+        <!-- List of task -->
+        <section>
+          <header>
+            <h2 class="text-2xl font-semibold">Tasks</h2>
+          </header>
+          <ul class="my-4" id="task-list">
+            <li class="border-b py-2">Task 1 - Due: Unknown</li>
+            <li class="border-b py-2">Task 2 - Due: Unknown</li>
+            <li class="border-b py-2">Task 3 - Due: Unknown</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="text-center">
+        <span>&copy; 2025 Ndo. All rights reserved.</span>
+      </footer>
+    </div>
 
     <!-- JS External -->
     <script src="js/script.js"></script>
