@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- CSS External -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- Hero Website -->
+    <header>
+      <h1 class="text-4xl font-bold">Todo List</h1>
+    </header>
+    <!-- Main Content, Todo List Form, List Todo -->
+    <main>
+      <form>
+        <input
+          type="text"
+          placeholder="Add a new task"
+          class="border p-2 rounded"
+        />
+        <input
+          type="date"
+          placeholder="Add a new task"
+          class="border p-2 rounded"
+        />
+        <button type="submit" class="bg-red-500 text-black p-[8px] rounded">
+          Add
+        </button>
+      </form>
+      <section>
+        <header>
+          <h2 class="font-bold">Tasks</h2>
+        </header>
+        <ul class="my-4">
+          <li class="border-b py-2">Task 1</li>
+          <li class="border-b py-2">Task 2</li>
+          <li class="border-b py-2">Task 3</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2025 Nando. All rights reserved.</span>
+    </footer>
+
+    <!-- JS External -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
